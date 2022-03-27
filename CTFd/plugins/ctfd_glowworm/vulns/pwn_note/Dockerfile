@@ -1,7 +1,9 @@
 FROM ubuntu:16.04
 
 # set source download and install xinted
-RUN apt update && apt-get install -y lib32z1 xinetd ssh python2.7 && apt-get install -y python-pip && pip install --upgrade pip && python -m pip install pip==9.0.3 && pip2 install setuptools && apt-get install libmysqlclient-dev -y && apt-get install -y gcc && apt-get install -y python-dev && pip2 install requests && rm -rf /var/lib/apt/lists/ && rm -rf /root/.cache && apt-get autoclean && rm -rf /tmp/* /var/lib/apt/* /var/cache/* /var/log/*
+RUN apt update && apt-get install -y lib32z1 xinetd ssh python2.7 && apt-get install -y python-pip
+RUN apt-get install libmysqlclient-dev -y && apt-get install -y gcc && apt-get install -y python-dev 
+RUN pip2 install requests --trusted-host pypi.douban.com -i http://pypi.douban.com/simple/ && rm -rf /var/lib/apt/lists/ && rm -rf /root/.cache && apt-get autoclean && rm -rf /tmp/* /var/lib/apt/* /var/cache/* /var/log/*
 
 COPY ./conf /conf
 

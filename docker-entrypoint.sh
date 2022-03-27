@@ -1,5 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 set -eo pipefail
+#sleep infinity
+
+shopt -s expand_aliases
+alias python='python3.7'
+alias pip='pip3'
 
 WORKERS=${WORKERS:-1}
 WORKER_CLASS=${WORKER_CLASS:-gevent}

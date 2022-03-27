@@ -1,7 +1,8 @@
 #--- Release ---
-FROM d0g3/h1ve
+FROM helsons/ubuntu:h1ve_v1
 
 ARG WORKDIR
+ENV DEBIAN_FRONTEND noninteractive
 ENV WORKDIR_IN ${WORKDIR}
 WORKDIR $WORKDIR
 RUN mkdir -p $WORKDIR /var/log/CTFd /var/uploads
